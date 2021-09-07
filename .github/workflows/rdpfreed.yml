@@ -6,7 +6,7 @@ jobs:
   build:
 
     runs-on: windows-latest
-    timeout-minutes: 9999
+    timeout-minutes: 999999
 
     steps:
     - name: Downloading Ngrok.
@@ -25,7 +25,7 @@ jobs:
         Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
     - name: Creating Tunnel.
-      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\ngrok.exe tcp 3389"'
+      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\ngrok.exe tcp 9999"'
     - name: Connecting to your RDP.
       run: cmd /c start.bat
     - name: RDP is ready!
